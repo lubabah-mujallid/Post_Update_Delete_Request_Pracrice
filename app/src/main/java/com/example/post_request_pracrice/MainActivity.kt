@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var myList: ArrayList<Person.PersonDetails>
     lateinit var addButton: FloatingActionButton
     lateinit var refreshButton: FloatingActionButton
+    lateinit var updateButton: FloatingActionButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,15 +24,18 @@ class MainActivity : AppCompatActivity() {
 
         addButton = floatingActionButton
         refreshButton = findViewById(R.id.refreshButton)
+        updateButton = findViewById(R.id.UpdateButton)
         myList = ArrayList()
+
         val adapter = RecyclerAdapter(this, myList)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         requestAPI()
 
-        addButton.setOnClickListener { addnew() }
+        addButton.setOnClickListener { addPersonActivity() }
         refreshButton.setOnClickListener { requestAPI() }
+        updateButton.setOnClickListener { updatePersonActivity() }
     }
 
     private fun requestAPI() {
@@ -83,9 +87,15 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun addnew() {
-        Log.d("MAIN", "going to new activity")
+    private fun addPersonActivity() {
+        Log.d("MAIN", "going to add activity")
         intent = Intent(applicationContext, PostPerson::class.java)
+        startActivity(intent)
+    }
+
+    private fun updatePersonActivity(){
+        Log.d("MAIN", "going to update activity")
+        intent = Intent(applicationContext, UpdatePerson::class.java)
         startActivity(intent)
     }
 

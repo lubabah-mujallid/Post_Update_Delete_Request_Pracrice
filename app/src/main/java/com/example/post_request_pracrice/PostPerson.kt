@@ -28,7 +28,7 @@ class PostPerson : AppCompatActivity() {
         cancelButton = findViewById(R.id.buttonCancel)
 
         addButton.setOnClickListener {
-            var person = Person.PersonDetails(etName.text.toString(),etLocation.text.toString())
+            var person = Person.PersonDetails(etName.text.toString(),etLocation.text.toString(),1)
             Log.d("POST", "person is: $person")
             newPerson(person)
             etName.setText("")

@@ -4,7 +4,8 @@ class Person(){
     var data: List<PersonDetails>? = null
     data class PersonDetails(
         val name: String? = null,
-        val location: String? = null
+        val location: String? = null,
+        val pk: Int? = null
     )
 }
 

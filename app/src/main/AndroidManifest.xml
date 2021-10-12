@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Post_Request_Pracrice">
         <activity
+            android:name=".UpdatePerson"
+            android:exported="true" />
+        <activity
             android:name=".PostPerson"
             android:exported="true" />
         <activity
